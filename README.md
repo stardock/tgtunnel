@@ -3,10 +3,10 @@ Telegram Tunnel for Russian VPS
 
 OpenConnect VPN客户端能安装在众多主流Linux系统中，如Fedora、RHEL、CentOS、Arch Linux、OpenSUSE和Debian等，参考在Debian 10 Buster上安装OpenConnect VPN Server的方法，Fedora可用sudo dnf install openconnect命令安装，RHEL、CentOS可用sudo yum install openconnect命令安装，Arch Linux可用sudo pacman -S openconnect命令安装。除了支持Linux外，还支持MacOS、Windows和OpenWRT，对于Android和iOS，可以使用Cisco AnyConnect客户端。以下为你讲解让OpenConnect VPN客户端随系统启动时自动连接的方法。  
 
-Step 1 Install ocserv  
+Step 1 Install ocserv (Server)  
  `https://github.com/travislee8964/ocserv-auto`  
  
-Step 2 Setup routing table  
+Step 2 Setup routing table (Server)  
  ```  
  #TG
 route = 91.108.4.0/255.255.252.0
@@ -18,10 +18,11 @@ route = 91.108.56.0/255.255.252.0
 route = 149.154.160.0/255.255.240.0
 ```  
 
-Step 3 Setup auto-run
+Step 3 Setup auto-run (Client)
 
 系统启动时自动连接  
-为了让OpenConnect VPN客户端在引导时自动连接到服务器，我们可以创建一个systemd服务单元：  
+为了让OpenConnect VPN客户端在引导时自动连接到服务器，我们可以创建一个systemd服务单元：
+`yum install openconnect -y`  
 `vi /etc/systemd/system/openconnect.service`  
 将以下行放入该文件，请注意更换自己的参数，如vpn.example.com地址：  
 ```  
