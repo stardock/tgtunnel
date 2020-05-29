@@ -21,7 +21,7 @@ route = 149.154.160.0/255.255.240.0
 Step 3 Setup auto-run (Client)
 
 系统启动时自动连接  
-为了让OpenConnect VPN客户端在引导时自动连接到服务器，我们可以创建一个systemd服务单元：
+为了让OpenConnect VPN客户端在引导时自动连接到服务器，我们可以创建一个systemd服务单元：  
 `yum install openconnect -y`  
 `vi /etc/systemd/system/openconnect.service`  
 将以下行放入该文件，请注意更换自己的参数，如vpn.example.com地址：  
