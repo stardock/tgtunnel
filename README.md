@@ -33,7 +33,7 @@ Wants=network-online.target
 
 [Service]
 Type=idle
-ExecStart=/bin/bash -c '/bin/echo -n 密码 | /usr/sbin/openconnect 服务器地址:端口号 -u 登录名 --passwd-on-stdin'
+ExecStart=/bin/bash -c '/bin/echo -n 密码 | /usr/sbin/openconnect -v 服务器地址:端口号 --authgroup 组名 -u 登录名 --passwd-on-stdin'
 ExecStop=/usr/bin/pkill openconnect
 Restart=always
 RestartSec=2
